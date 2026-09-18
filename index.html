@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colosseum & Ludus</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;background:#160d09;color:#2d1c14;
+font-family:Georgia,serif
+}
+#app{
+max-width:430px;min-height:100vh;margin:auto;
+background:#eee4cf
+}
+header{
+background:#651f1d;color:#f8e8bd;
+padding:18px 14px;border-bottom:3px solid #b68b45
+}
+.logo{font-weight:bold;letter-spacing:1px}
+.resources{
+display:flex;gap:6px;margin-top:10px;
+font:11px Arial
+}
+.resources span{
+background:#3d1514;padding:6px;border-radius:7px
+}
+.hero{
+padding:22px 16px;background:#ddd0b3
+}
+.hero small{
+color:#8a382c;font:bold 11px Arial
+}
+h1{margin:5px 0}
+main{padding:14px 14px 90px}
+.card{
+background:#faf2df;border:1px solid #c8aa78;
+border-radius:12px;padding:14px;margin-bottom:12px
+}
+.title{font-size:19px;font-weight:bold}
+.muted{
+font:13px Arial;color:#756556;margin-top:5px
+}
+.stats{
+display:grid;grid-template-columns:1fr 1fr;
+gap:8px;margin-top:12px
+}
+.stat{
+background:#e5d7bd;padding:9px;border-radius:8px;
+font:12px Arial
+}
+.stat b{display:block;font-size:16px;margin-top:3px}
+button{
+width:100%;padding:13px;margin-top:10px;
+background:#6d211e;color:#fff0ce;
+border:1px solid #b78a46;border-radius:9px;
+font-weight:bold
+}
+.gold{background:#8c6024}
+.notice{
+background:#4d211b;color:#f5e5c3;
+padding:11px;border-radius:9px;
+font:13px Arial;margin-bottom:12px
+}
+nav{
+position:fixed;bottom:0;width:min(100%,430px);
+display:grid;grid-template-columns:repeat(5,1fr);
+background:#4c1917;border-top:2px solid #b68b45
+}
+nav button{
+border:0;margin:0;background:none;
+font-size:11px;padding:14px 2px
+}
+.big{
+font-size:36px;font-weight:bold;color:#6d241f
+}
+.center{text-align:center}
+</style>
+</head>
+
+<body>
+<div id="app"></div>
+
+<script>
+let game=JSON.parse(localStorage.getItem("colosseum"))||{
+gold:1250000,
+diamond:8,
+sapphire:18,
+exp:18400,
+overall:72,
+condition:84,
+quest:0,
+reward:false,
+upgrade:false,
+arena:false,
+rating:1500,
+screen:"home"
+};
+
+function save(){
+localStorage.setItem("colosseum",JSON.stringify(game));
+}
+
+function go(screen){
+game.screen=screen;
+save();
+render();
+window.scrollTo(0,0);
+}
+
+function header(title){
+return `
+<header>
+<div class="logo">COLOSSEUM & LUDUS</div>
+<div class="resources">
+<span>ALTIN ${game.gold.toLocaleString()}</span>
+<span>SAFİR ${game.sapphire}</span>
+<span>ELMAS ${game.diamond}</span>
+</div>
+</header>
+
+<section class="hero">
+<small>AUREA LUDUS</small>
+<h1>${title}</h1>
+</section>
+
+<main>`;
+}
+
+function gladiator(){
+return `
+<div class="card">
+<div class="title">Aulus Varro</div>
+<div class="muted">Murmillo · Seviye 12 · Bronze III</div>
+
+<div class="stats">
+<div class="stat">Overall<b>${game.overall}</b></div>
+<div class="stat">Kondisyon<b>${game.condition}/100</b></div>
+<div class="stat">EXP<b>${game.exp}</b></div>
+<div class="stat">Block Rate<b>100%</b></div>
+</div>
+
+<button onclick="go('gladiator')">
+Gladyatörü İncele
+</button>
+</div>`;
+}
+
+function navigation(){
+return `
+</main>
+<nav>
+<button onclick="go('home')">LUDUS</button>
+<button onclick="go('gladiator')">GLADYATÖR</button>
+<button onclick="go('quest')">GÖREV</button>
+<button onclick="go('arena')">ARENA</button>
+<button onclick="go('market')">PAZAR</button>
+</nav>`;
+}
+
+function render(){
+
+let html="";
+
+if(game.screen==="home"){
+html=header("Ludus'una Hoş Geldin");
+
+html+=`
+<div class="notice">
+${
+game.quest===0
+?"İlk hedef: Aulus Varro'yu incele ve ilk görevine gönder."
+:!game.reward
+?"Görev sonucunu kontrol et."
+:!game.upgrade
+?"Kazandığın kaynakla ekipmanını geliştir."
+:"Aulus hazır. Arena seni bekliyor."
+}
+</div>`;
+
+html+=gladiator();
+}
+
+if(game.screen==="gladiator"){
+html=header("Gladyatör Detay");
+
+html+=gladiator();
+
+html+=`
+<div class="card">
+<div class="title">Ekipman</div>
+
+<div class="stats">
+<div class="stat">Murmillo Kılıcı<b>+${game.upgrade?6:5}</b></div>
+<div class="stat">Kalkan<b>+3</b></div>
+<div class="stat">Miğfer<b>+4</b></div>
+<div class="stat">Zırh<b>+6</b></div>
+</div>
+
+<button onclick="go('quest')">
+Görevlere Git
+</button>
+</div>`;
+}
+
+if(game.screen==="quest"){
+html=header("Görevler");
+
+if(game.quest===0){
+html+=`
+<div class="card">
+<div class="title">
+Capua Pazarında Hırsız Avı
+</div>
+
+<div class="muted">
+Düşük risk · Aulus Varro uygun
+</div>
+
+<button onclick="startQuest()">
+Aulus Varro'yu Göreve Gönder
+</button>
+</div>`;
+}
+
+if(game.quest===1){
+html+=`
+<div class="card center">
+<div class="title">Görev Tamamlandı</div>
+
+<p class="muted">
+Aulus görevden döndü.
+</p>
+
+<button onclick="finishQuest()">
+Görev Sonucunu Gör
+</button>
+</div>`;
+}
+
+if(game.quest===2){
+html+=`
+<div class="card center">
+
+<h2>ZAFER</h2>
+
+<p>
+25.000 Altın<br>
+1.000 EXP<br>
+3 Safir
+</p>
+
+<button onclick="claim()">
+${game.reward?"ÖDÜL ALINDI":"ÖDÜLÜ AL"}
+</button>
+
+${game.reward?
+`<button class="gold" onclick="go('upgrade')">
+Geliştirmeye Geç
+</button>`:""}
+
+</div>`;
+}
+}
+
+if(game.screen==="upgrade"){
+html=header("Geliştirme");
+
+html+=`
+<div class="card center">
+
+<div class="title">Murmillo Kılıcı</div>
+
+<div class="big">
++${game.upgrade?6:5}
+</div>
+
+<div class="muted">
+Maliyet: 1 Elmas
+</div>
+
+<button class="gold"
+onclick="upgrade()">
+${game.upgrade?"GELİŞTİRİLDİ":"+6 YAP"}
+</button>
+
+${game.upgrade?
+`<button onclick="go('arena')">
+Arena'ya Git
+</button>`:""}
+
+</div>`;
+}
+
+if(game.screen==="arena"){
+html=header("Ranked Arena");
+
+if(!game.upgrade){
+
+html+=`
+<div class="notice">
+Önce ilk geliştirme akışını tamamla.
+</div>`;
+
+}else if(!game.arena){
+
+html+=`
+<div class="card center">
+
+<div class="title">Aulus Varro</div>
+
+<p>
+Rating ${game.rating}<br>
+Rakip: Draco Team
+</p>
+
+<button onclick="fight()">
+SAVAŞI BAŞLAT
+</button>
+
+</div>`;
+
+}else{
+
+html+=`
+<div class="card center">
+
+<h2>ZAFER</h2>
+
+<div class="big">
+${game.rating}
+</div>
+
+<p>
+Rating +24<br>
+EXP +500<br>
+Kondisyon ${game.condition}
+</p>
+
+<button onclick="go('market')">
+Pazara Git
+</button>
+
+</div>`;
+}
+}
+
+if(game.screen==="market"){
+html=header("Pazar");
+
+html+=`
+<div class="card">
+
+<div class="title">
+Lucius Drusus
+</div>
+
+<div class="muted">
+Murmillo · Overall 71 · Bronze III
+</div>
+
+<h2>950.000 Altın</h2>
+
+<button class="gold" onclick="buy()">
+SATIN AL
+</button>
+
+</div>`;
+}
+
+document.getElementById("app").innerHTML=
+html+navigation();
+}
+
+function startQuest(){
+if(game.quest!==0)return;
+game.quest=1;
+game.condition-=4;
+save();
+render();
+}
+
+function finishQuest(){
+game.quest=2;
+save();
+render();
+}
+
+function claim(){
+if(game.reward){
+alert("Bu ödül daha önce alındı.");
+return;
+}
+
+game.reward=true;
+game.gold+=25000;
+game.exp+=1000;
+game.sapphire+=3;
+
+save();
+render();
+}
+
+function upgrade(){
+
+if(game.upgrade)return;
+
+if(game.diamond<1){
+alert("Yeterli Elmas yok.");
+return;
+}
+
+game.diamond--;
+game.overall=73;
+game.upgrade=true;
+
+save();
+render();
+}
+
+function fight(){
+
+if(game.arena)return;
+
+game.arena=true;
+game.rating+=24;
+game.exp+=500;
+game.condition-=12;
+
+save();
+render();
+}
+
+function buy(){
+
+if(game.gold<950000){
+alert("Yeterli Altın yok.");
+return;
+}
+
+game.gold-=950000;
+
+save();
+render();
+
+alert("Lucius Drusus Ludus'una katıldı.");
+}
+
+render();
+</script>
+</body>
+</html>
