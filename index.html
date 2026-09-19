@@ -3050,26 +3050,27 @@ function boot(){
   activityTick();
   save();
   render();
+  setTimeout(fitGameToViewport,0);
 
   setInterval(()=>{
     activityTick();
-    if(["home","training","quests"].includes(page))
+    if(["home","training","quests"].includes(page)) render();
+    else save();
+  },30000);
+}
+
 function fitGameToViewport(){
   if(window.innerWidth<=900){
+    const app=document.getElementById("app");
     const scale=Math.min(1,window.innerWidth/1280);
-    document.getElementById("app").style.transform=`scale(${scale})`;
-    document.body.style.height=`${Math.ceil(document.getElementById("app").scrollHeight*scale)}px`;
+    app.style.transform=`scale(${scale})`;
+    document.body.style.height=`${Math.ceil(app.scrollHeight*scale)}px`;
   }else{
     document.getElementById("app").style.transform="";
     document.body.style.height="";
   }
 }
 window.addEventListener("resize",fitGameToViewport);
-
-render();
-    else save();
-  },30000);
-}
 
 try{
   boot();
