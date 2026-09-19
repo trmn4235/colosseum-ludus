@@ -6,112 +6,211 @@
 <title>COLOSSEUM & LUDUS</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#18110e;color:#38251c;font-family:Georgia,serif}
-#app{max-width:430px;min-height:100vh;margin:auto;background:#eee3cd;padding-bottom:78px}
-header{background:#681a20;color:#f8e8bd;padding:16px;border-bottom:3px solid #b99045}
+body{margin:0;background:#17100d;color:#38251c;font-family:Georgia,serif}
+#app{max-width:430px;min-height:100vh;margin:auto;background:#eee3cd;padding-bottom:82px}
+header{background:#681a20;color:#f8e8bd;padding:15px;border-bottom:3px solid #b99045}
 .brand{font-size:20px;font-weight:bold;letter-spacing:1px}
-.sub{font-size:12px;opacity:.8;margin-top:3px}
-.resources{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:8px;background:#d5c19a;font-size:12px;text-align:center}
-.res{background:#f7efd9;border:1px solid #b79c65;padding:7px 2px;border-radius:5px}
-main{padding:12px}
-.card{background:#faf3e3;border:1px solid #b99c65;border-radius:8px;padding:14px;margin-bottom:11px;box-shadow:0 2px 5px #0002}
-h2,h3{margin:0 0 10px;color:#681a20}
-.hero{text-align:center;padding:22px 10px}
-.avatar{font-size:70px}
-.name{font-size:23px;font-weight:bold;color:#681a20;margin:7px}
-.tags span{display:inline-block;background:#ded0ae;padding:5px 8px;margin:3px;border-radius:4px;font-size:12px}
-button{width:100%;border:0;border-radius:6px;padding:13px;margin-top:8px;background:#681a20;color:white;font-family:inherit;font-weight:bold;font-size:15px}
-button.gold{background:#9a7128}
-button.green{background:#376437}
-button.gray{background:#756c60}
-button:disabled{opacity:.45}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.stat{background:#eee2c9;padding:9px;border-radius:5px;font-size:13px}
-.notice{padding:10px;background:#e2d3ac;border-left:4px solid #9a7128;margin:10px 0;font-size:13px}
+.sub{font-size:11px;opacity:.82;margin-top:3px}
+.resources{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:7px;background:#d4c097;text-align:center;font-size:11px}
+.res{background:#f8efd9;border:1px solid #b79c65;padding:7px 1px;border-radius:5px}
+main{padding:11px}
+.card{background:#faf3e3;border:1px solid #b99c65;border-radius:8px;padding:13px;margin-bottom:10px;box-shadow:0 2px 5px #0002}
+h2,h3{margin:0 0 9px;color:#681a20}
+h2{font-size:20px}
+h3{font-size:16px}
+.hero{text-align:center;padding:20px 10px}
+.avatar{font-size:60px}
+.name{font-size:22px;font-weight:bold;color:#681a20;margin:6px}
+.small{font-size:11px;opacity:.72}
+.muted{opacity:.65}
+button{width:100%;border:0;border-radius:6px;padding:12px 6px;margin-top:7px;background:#681a20;color:white;font-family:inherit;font-weight:bold;font-size:13px}
+button.gold{background:#987027}
+button.green{background:#3c683d}
+button.gray{background:#746b60}
+button.light{background:#d7c49e;color:#4c2b20;border:1px solid #aa8b55}
+button:disabled{opacity:.43}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #d8c9aa}
+.row:last-child{border-bottom:0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.stat{background:#eee2c9;padding:9px;border-radius:5px;font-size:12px}
+.tags span,.badge{display:inline-block;background:#dfd0ad;padding:5px 7px;margin:2px;border-radius:4px;font-size:11px}
+.badge{background:#681a20;color:#f4dfae}
+.notice{padding:10px;background:#e2d3ac;border-left:4px solid #987027;margin:9px 0;font-size:12px;line-height:1.45}
 .success{background:#dce7d5;border-left-color:#376437}
-.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #d8c9aa}
-.gladiator{cursor:pointer}
-.selected{border:2px solid #9a7128}
-.progress{height:9px;background:#d4c5a7;border-radius:5px;overflow:hidden;margin-top:5px}
+.danger{background:#ead5d0;border-left-color:#8b2929}
+.progress{height:9px;background:#d4c5a7;border-radius:5px;overflow:hidden;margin:5px 0}
 .progress div{height:100%;background:#681a20}
-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);display:grid;grid-template-columns:repeat(5,1fr);background:#4d1519;border-top:2px solid #b99045;z-index:10}
-nav button{margin:0;border-radius:0;padding:12px 2px;background:transparent;font-size:10px}
-.small{font-size:12px;opacity:.75}
-.price{font-size:22px;color:#8a651e;font-weight:bold}
-.badge{display:inline-block;background:#681a20;color:#f4dfae;padding:4px 7px;border-radius:4px;font-size:11px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.gladiator{cursor:pointer}
+.selected{border:2px solid #987027;background:#fff8e8}
+.slot{background:#eee1c5;border:1px solid #c3a873;border-radius:6px;padding:10px;margin:6px 0}
+.slotTop{display:flex;justify-content:space-between;gap:8px}
+.plus{font-size:17px;font-weight:bold;color:#681a20}
+.stone{font-size:11px;padding:5px 0;border-bottom:1px dashed #ccb98f}
+.stone:last-child{border:0}
+.staff{display:grid;grid-template-columns:1fr auto;gap:5px;align-items:center;padding:9px 0;border-bottom:1px solid #d8c9aa}
+.questDone{opacity:.65}
+.tabs{display:flex;gap:5px;overflow:auto;margin-bottom:9px}
+.tabs button{min-width:max-content;width:auto;padding:8px 10px;margin:0;background:#9b7b43}
+.tabs button.on{background:#681a20}
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);width:min(390px,90%);background:#2d211b;color:white;padding:11px;border-radius:7px;text-align:center;z-index:30;font-size:12px;box-shadow:0 3px 15px #0007}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);display:grid;grid-template-columns:repeat(6,1fr);background:#4d1519;border-top:2px solid #b99045;z-index:20}
+nav button{margin:0;border-radius:0;padding:11px 1px;background:transparent;font-size:9px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.menu button{margin:0}
+.price{font-size:20px;color:#8a651e;font-weight:bold}
 </style>
 </head>
+
 <body>
 <div id="app"></div>
 
 <script>
 const KEY="colosseum_pack1";
 
-const fresh=()=>({
- gold:1250000,
- diamond:8,
- sapphire:18,
- ruby:25,
- exp:18400,
- rating:1500,
- quest:0,
- rewardClaimed:false,
- upgraded:false,
- arenaPlayed:false,
- boughtLucius:false,
- selected:"aulus",
- screen:"home",
+const DEFAULTS={
+ gold:1250000,diamond:8,sapphire:18,ruby:25,
+ exp:18400,rating:1500,quest:0,rewardClaimed:false,
+ upgraded:false,arenaPlayed:false,boughtLucius:false,
+ selected:"aulus",screen:"home",tab:"roster",
+ transactions:{},questsDone:0,
+ profile:{
+  owner:"MarcusT",ludus:"Aurea Ludus",level:12,
+  country:"Türkiye",guild:"Aurea Legio",rank:"Bronze III"
+ },
+ stones:{felix:2,vesper:1,tenax:1},
+ staff:{
+  doctore:{name:"Doctore",level:3},
+  faber:{name:"Faber",level:3},
+  medicus:{name:"Medicus",level:2},
+  coquus:{name:"Coquus",level:2},
+  custos:{name:"Custos",level:2}
+ },
+ facilities:{
+  training:2,infirmary:2,kitchen:2,beds:2
+ },
+ equipment:{
+  weapon:{name:"Murmillo Kılıcı",plus:5,
+   blue:["Extra HP +4%","Critical +3%","Block Rate +3%","FELIX ×2"],
+   purple:["Mars +2%","Victoria +2%"]},
+  shield:{name:"Scutum",plus:3,
+   blue:["Extra HP +3%","Block Rate +4%","Kondisyon +2%","VESPER ×1"],
+   purple:["Aegis +2%","Concordia +2%"]},
+  helmet:{name:"Murmillo Miğferi",plus:4,
+   blue:["Extra HP +2%","HP Regen +3%","Critical +2%","TENAX ×1"],
+   purple:["Vanguard +2%","Aegis +2%"]},
+  chest:{name:"Göğüs Zırhı",plus:6,
+   blue:["Extra HP +5%","HP Regen +3%","Kondisyon +3%","Block Rate +2%"],
+   purple:["Vanguard +3%","Concordia +2%"]},
+  gloves:{name:"Kolluk",plus:2,
+   blue:["Critical +3%","Agility +2%","Kondisyon Regen +2%","Extra HP +2%"],
+   purple:["Mars +2%","Team Skill Power +2%"]},
+  legs:{name:"Bacaklık",plus:2,
+   blue:["Agility +3%","Kondisyon +2%","Kondisyon Regen +2%","Extra HP +2%"],
+   purple:["Victoria +2%","Team Skill Trigger +2%"]}
+ },
  gladiators:{
   aulus:{
    id:"aulus",name:"Aulus Varro",klass:"Murmillo",
    level:12,overall:72,condition:84,weapon:5,
    health:1840,stamina:610,agility:128
+  },
+  cassius:{
+   id:"cassius",name:"Cassius Nero",klass:"Thraex",
+   level:10,overall:69,condition:92,weapon:3,
+   health:1660,stamina:635,agility:141
+  },
+  titus:{
+   id:"titus",name:"Titus Flavius",klass:"Hoplomachus",
+   level:9,overall:67,condition:95,weapon:3,
+   health:1710,stamina:620,agility:133
   }
  }
-});
+};
 
-let S;
-try{
- S=JSON.parse(localStorage.getItem(KEY))||fresh();
-}catch(e){S=fresh()}
-
-function save(){
- localStorage.setItem(KEY,JSON.stringify(S));
- render();
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function merge(a,b){
+ for(const k in b){
+  if(a[k]===undefined)a[k]=clone(b[k]);
+  else if(typeof b[k]==="object" && b[k] && !Array.isArray(b[k])){
+   if(typeof a[k]!=="object"||!a[k])a[k]={};
+   merge(a[k],b[k]);
+  }
+ }
+ return a;
 }
 
-function nav(screen){
- S.screen=screen;
- save();
- window.scrollTo(0,0);
+let S;
+try{S=JSON.parse(localStorage.getItem(KEY))||clone(DEFAULTS)}
+catch(e){S=clone(DEFAULTS)}
+S=merge(S,DEFAULTS);
+
+/* Eski Pack 1'de Lucius alınmışsa koru */
+if(S.boughtLucius&&!S.gladiators.lucius){
+ S.gladiators.lucius={
+  id:"lucius",name:"Lucius Drusus",klass:"Murmillo",
+  level:11,overall:71,condition:88,weapon:4,
+  health:1760,stamina:590,agility:124
+ };
+}
+
+/* Eski +6 geliştirmeyi ekipmana taşı */
+if(S.upgraded){
+ S.equipment.weapon.plus=Math.max(6,S.equipment.weapon.plus||0);
+ S.gladiators.aulus.weapon=Math.max(6,S.gladiators.aulus.weapon||0);
+ S.gladiators.aulus.overall=Math.max(73,S.gladiators.aulus.overall||0);
+}
+
+let toastTimer;
+
+function persist(){localStorage.setItem(KEY,JSON.stringify(S))}
+function save(){persist();render()}
+function nav(x){S.screen=x;save();scrollTo(0,0)}
+function setTab(x){S.tab=x;save()}
+function g(){return S.gladiators[S.selected]||S.gladiators.aulus}
+function fmt(x){return Number(x).toLocaleString("tr-TR")}
+
+function toast(t){
+ clearTimeout(toastTimer);
+ const old=document.querySelector(".toast");
+ if(old)old.remove();
+ const d=document.createElement("div");
+ d.className="toast";d.textContent=t;
+ document.body.appendChild(d);
+ toastTimer=setTimeout(()=>d.remove(),2300);
+}
+
+function once(id,fn){
+ if(S.transactions[id]){
+  toast("Bu işlem daha önce tamamlandı.");
+  return false;
+ }
+ fn();
+ S.transactions[id]=Date.now();
+ persist();render();
+ return true;
 }
 
 function resources(){
- return `
- <div class="resources">
-  <div class="res">🪙<br><b>${S.gold.toLocaleString("tr-TR")}</b></div>
+ return `<div class="resources">
+  <div class="res">🪙<br><b>${fmt(S.gold)}</b></div>
   <div class="res">💎<br><b>${S.diamond}</b></div>
   <div class="res">🔷<br><b>${S.sapphire}</b></div>
   <div class="res">♦️<br><b>${S.ruby}</b></div>
  </div>`;
 }
 
-function selected(){
- return S.gladiators[S.selected]||S.gladiators.aulus;
-}
-
 function home(){
- const g=selected();
- const roster=Object.values(S.gladiators);
+ const x=g(), roster=Object.values(S.gladiators);
  return `
  <div class="card hero">
-  <div class="small">LUDUS LEVEL 12</div>
-  <h2>AUREA LUDUS</h2>
-  <div class="avatar">⚔️</div>
-  <div class="name">${g.name}</div>
+  <div class="small">LUDUS LEVEL ${S.profile.level}</div>
+  <h2>${S.profile.ludus.toUpperCase()}</h2>
+  <div class="avatar">🏛️</div>
+  <div class="name">${x.name}</div>
   <div class="tags">
-   <span>${g.klass}</span><span>OVR ${g.overall}</span>
-   <span>Lv. ${g.level}</span><span>${g.condition}% Kondisyon</span>
+   <span>${x.klass}</span><span>OVR ${x.overall}</span>
+   <span>Lv.${x.level}</span><span>${x.condition}% Kondisyon</span>
   </div>
   <button onclick="nav('gladiator')">GLADYATÖRÜ İNCELE</button>
  </div>
@@ -126,271 +225,430 @@ function home(){
  </div>
 
  <div class="card">
-  <h3>İlerleme</h3>
-  <div class="row"><span>EXP</span><b>${S.exp.toLocaleString("tr-TR")}</b></div>
-  <div class="row"><span>Arena Rating</span><b>${S.rating}</b></div>
+  <h3>Yönetim Özeti</h3>
   <div class="row"><span>Kadro</span><b>${roster.length} Gladyatör</b></div>
+  <div class="row"><span>Ludus EXP</span><b>${fmt(S.exp)}</b></div>
+  <div class="row"><span>Tamamlanan Görev</span><b>${S.questsDone}</b></div>
+  <div class="row"><span>Arena Rating</span><b>${S.rating}</b></div>
+ </div>
+
+ <div class="menu">
+  <button class="gold" onclick="nav('management')">🏛️ YÖNETİM</button>
+  <button class="gold" onclick="nav('inventory')">🎒 ENVANTER</button>
  </div>`;
 }
 
 function gladiator(){
- const g=selected();
+ const x=g();
  return `
  <div class="card hero">
-  <div class="avatar">🛡️</div>
-  <div class="name">${g.name}</div>
-  <div class="badge">${g.klass}</div>
-  <p>Overall <b>${g.overall}</b> · Seviye <b>${g.level}</b></p>
-  <div class="progress"><div style="width:${g.condition}%"></div></div>
-  <p class="small">Kondisyon ${g.condition}/100</p>
+  <div class="avatar">⚔️</div>
+  <div class="name">${x.name}</div>
+  <span class="badge">${x.klass}</span>
+  <p>OVR <b>${x.overall}</b> · Seviye <b>${x.level}</b></p>
+  <div class="progress"><div style="width:${x.condition}%"></div></div>
+  <div class="small">Kondisyon ${x.condition}/100</div>
  </div>
 
  <div class="card">
   <h3>Savaş İstatistikleri</h3>
   <div class="stats">
-   <div class="stat">Health<br><b>${g.health}</b></div>
-   <div class="stat">Stamina<br><b>${g.stamina}</b></div>
-   <div class="stat">Agility<br><b>${g.agility}</b></div>
-   <div class="stat">Silah<br><b>+${g.weapon}</b></div>
+   <div class="stat">Health<br><b>${x.health}</b></div>
+   <div class="stat">Stamina<br><b>${x.stamina}</b></div>
+   <div class="stat">Agility<br><b>${x.agility}</b></div>
+   <div class="stat">Silah<br><b>+${x.weapon}</b></div>
   </div>
  </div>
 
  <div class="card">
-  <h3>Gladyatör Seç</h3>
-  ${Object.values(S.gladiators).map(x=>`
-   <div class="card gladiator ${S.selected===x.id?'selected':''}"
-    onclick="S.selected='${x.id}';save()">
-    <b>${x.name}</b> — ${x.klass}<br>
-    <span class="small">OVR ${x.overall} · Kondisyon ${x.condition}%</span>
+  <h3>Kadro</h3>
+  ${Object.values(S.gladiators).map(y=>`
+   <div class="card gladiator ${S.selected===y.id?"selected":""}"
+    onclick="selectGladiator('${y.id}')">
+    <b>${y.name}</b>
+    <div class="small">${y.klass} · Lv.${y.level} · OVR ${y.overall} · Kondisyon ${y.condition}%</div>
    </div>`).join("")}
+ </div>
+
+ <div class="grid2">
+  <button onclick="nav('equipment')">EKİPMAN</button>
+  <button class="green" onclick="restGladiator()">DİNLENDİR</button>
  </div>`;
 }
 
-function quest(){
- const g=selected();
+function selectGladiator(id){S.selected=id;save()}
 
- if(S.quest===0) return `
+function restGladiator(){
+ const x=g();
+ if(x.condition>=100){toast("Kondisyon zaten tam.");return}
+ x.condition=Math.min(100,x.condition+10);
+ persist();render();toast(x.name+" +10 kondisyon kazandı.");
+}
+
+const slotNames={
+ weapon:"SİLAH",shield:"KALKAN",helmet:"MİĞFER",
+ chest:"GÖĞÜS ZIRHI",gloves:"KOLLUK",legs:"BACAKLIK"
+};
+
+function equipment(){
+ return `
  <div class="card">
+  <h2>Ekipman Yönetimi</h2>
+  <div class="small">${g().name} · Her eşyada 4 Safir + 2 Yakut</div>
+ </div>
+
+ ${Object.entries(S.equipment).map(([key,e])=>`
+  <div class="slot">
+   <div class="slotTop">
+    <div><span class="small">${slotNames[key]}</span><br><b>${e.name}</b></div>
+    <div class="plus">+${e.plus}</div>
+   </div>
+   <div style="margin-top:7px">
+    ${e.blue.map(s=>`<div class="stone">🔷 ${s}</div>`).join("")}
+    ${e.purple.map(s=>`<div class="stone">♦️ ${s}</div>`).join("")}
+   </div>
+   ${key==="weapon"
+    ?`<button class="gold" onclick="nav('upgrade')">GELİŞTİR</button>`
+    :""}
+  </div>`).join("")}`;
+}
+
+function upgrade(){
+ const e=S.equipment.weapon;
+ const next=e.plus+1;
+ const risky=e.plus>=5;
+ const cost=1;
+
+ return `
+ <div class="card hero">
+  <div class="avatar">⚒️</div>
+  <h2>${e.name}</h2>
+  <div class="price">+${e.plus} → +${next}</div>
+  <p class="small">${risky?"Güvenli geliştirme sınırı geçildi.":"+1 – +5 güvenli geliştirme."}</p>
+ </div>
+
+ <div class="card">
+  <div class="row"><span>Maliyet</span><b>${cost} 💎 Elmas</b></div>
+  <div class="row"><span>Elmas</span><b>${S.diamond}</b></div>
+  <div class="row"><span>FELIX</span><b>×${S.stones.felix}</b></div>
+  ${risky?`
+   <div class="notice danger">
+    +5 sonrasında her denemede eşyanın yok olma riski vardır.
+    FELIX takılıysa başarıya +5 puan ekler ve her denemede 1 FELIX tüketilir.
+   </div>`:""}
+  <button onclick="enhance()">+${next} GELİŞTİR</button>
+ </div>`;
+}
+
+function enhance(){
+ const e=S.equipment.weapon;
+ if(S.diamond<1){toast("Yeterli Elmas yok.");return}
+
+ const id="enhance_weapon_"+(e.plus+1);
+ if(S.transactions[id]){toast("Bu geliştirme zaten işlendi.");return}
+
+ S.diamond--;
+
+ if(S.stones.felix>0){
+  S.stones.felix--;
+  const i=e.blue.findIndex(x=>x.startsWith("FELIX"));
+  if(i>=0)e.blue[i]="FELIX ×"+S.stones.felix;
+ }
+
+ e.plus++;
+ S.gladiators.aulus.weapon=e.plus;
+ if(S.gladiators.aulus.overall<100)S.gladiators.aulus.overall++;
+ S.upgraded=e.plus>=6;
+ S.transactions[id]=Date.now();
+
+ persist();render();
+ toast(e.name+" +"+e.plus+" oldu.");
+}
+
+function inventory(){
+ return `
+ <div class="card">
+  <h2>Taş Envanteri</h2>
+  <div class="row"><span>💎 Elmas</span><b>${S.diamond}</b></div>
+  <div class="row"><span>🔷 Safir</span><b>${S.sapphire}</b></div>
+  <div class="row"><span>♦️ Yakut</span><b>${S.ruby}</b></div>
+ </div>
+
+ <div class="card">
+  <h3>Özel Safirler</h3>
+  <div class="row"><span>FELIX</span><b>×${S.stones.felix}</b></div>
+  <div class="small">Geliştirme başarısına sabit +5 puan. Her geliştirme denemesinde 1 adet tüketilir.</div>
+  <div class="row"><span>VESPER</span><b>×${S.stones.vesper}</b></div>
+  <div class="row"><span>TENAX</span><b>×${S.stones.tenax}</b></div>
+ </div>
+
+ <div class="card">
+  <h3>Safir Havuzu</h3>
+  <div class="tags">
+   <span>Extra HP</span><span>HP Regen</span>
+   <span>Kondisyon</span><span>Kondisyon Regen</span>
+   <span>Critical</span><span>Block Rate</span>
+  </div>
+ </div>
+
+ <button onclick="nav('equipment')">EKİPMANLARDAKİ TAŞLARI GÖR</button>`;
+}
+
+function management(){
+ return `
+ <div class="card">
+  <h2>Ludus Yönetimi</h2>
+  <div class="row"><span>Ludus</span><b>${S.profile.ludus}</b></div>
+  <div class="row"><span>Seviye</span><b>${S.profile.level}</b></div>
+  <div class="row"><span>Gladyatör</span><b>${Object.keys(S.gladiators).length}</b></div>
+ </div>
+
+ <div class="card">
+  <h3>Çalışanlar</h3>
+  ${Object.values(S.staff).map(x=>`
+   <div class="staff">
+    <div><b>${x.name}</b><br><span class="small">Ludus gücüne katkı sağlar</span></div>
+    <b>Lv.${x.level}</b>
+   </div>`).join("")}
+ </div>
+
+ <div class="card">
+  <h3>Ludus Alanları</h3>
+  <div class="row"><span>🏋️ Eğitim Alanı</span><b>Lv.${S.facilities.training}</b></div>
+  <div class="row"><span>⚕️ Tedavi Alanı</span><b>Lv.${S.facilities.infirmary}</b></div>
+  <div class="row"><span>🍲 Mutfak</span><b>Lv.${S.facilities.kitchen}</b></div>
+  <div class="row"><span>🛏️ Yataklar</span><b>Lv.${S.facilities.beds}</b></div>
+ </div>
+
+ <button class="green" onclick="restAll()">TÜM KADROYU DİNLENDİR</button>`;
+}
+
+function restAll(){
+ let changed=false;
+ Object.values(S.gladiators).forEach(x=>{
+  if(x.condition<100){
+   x.condition=Math.min(100,x.condition+8);
+   changed=true;
+  }
+ });
+ if(!changed){toast("Tüm gladyatörlerin kondisyonu tam.");return}
+ persist();render();toast("Kadro dinlendirildi. +8 kondisyon.");
+}
+
+function quest(){
+ const x=g();
+
+ if(S.quest===0)return `
+ <div class="card">
+  <div class="small">CAESAR'DAN SANA BİR GÖREV VAR</div>
   <h2>Capua Pazarında Hırsız Avı</h2>
-  <p>Düşük riskli başlangıç görevi.</p>
+  <p>Capua pazarındaki hırsızları yakala.</p>
+  <div class="row"><span>Zorluk</span><b>Basit · İtalya</b></div>
   <div class="row"><span>Süre</span><b>3 sn</b></div>
-  <div class="row"><span>Gladyatör</span><b>${g.name}</b></div>
+  <div class="row"><span>Gladyatör</span><b>${x.name}</b></div>
   <div class="row"><span>Risk</span><b>Düşük</b></div>
   <button onclick="startQuest()">GÖREVE GÖNDER</button>
  </div>`;
 
- if(S.quest===1) return `
+ if(S.quest===1)return `
  <div class="card hero">
-  <div class="avatar">⏳</div>
+  <div class="avatar">📜</div>
   <h2>Görev Devam Ediyor</h2>
-  <p>${g.name} Capua pazarında.</p>
+  <p>${x.name} Capua pazarında.</p>
   <button class="gold" onclick="finishQuest()">GÖREVİ TAMAMLA</button>
  </div>`;
 
  return `
  <div class="card hero">
   <div class="avatar">🏆</div>
-  <h2>GÖREV BAŞARILI</h2>
-  <p>${g.name} görevden döndü.</p>
+  <h2>GÖREV TAMAMLANDI</h2>
+  <p>${x.name} başarıyla Ludus'a döndü.</p>
   <div class="notice success">
-   25.000 Altın · 1.000 EXP · 3 Safir
+   25.000 Altın<br>
+   1.000 Ludus EXP<br>
+   3 Safir · 1 Yakut · 1 Elmas
   </div>
   ${S.rewardClaimed
    ?`<button disabled>ÖDÜL ALINDI ✓</button>`
    :`<button class="green" onclick="claimReward()">ÖDÜLÜ AL</button>`}
  </div>
- <div class="card">
-  <button class="gray" onclick="resetQuest()">YENİDEN GÖREVE ÇIK</button>
- </div>`;
+ <button class="gray" onclick="newQuest()">YENİ GÖREV</button>`;
 }
 
 function startQuest(){
  if(S.quest!==0)return;
+ if(g().condition<20){toast("Kondisyon çok düşük. Önce gladyatörü dinlendir.");return}
  S.quest=1;
- selected().condition=Math.max(0,selected().condition-4);
- save();
+ g().condition=Math.max(0,g().condition-4);
+ persist();render();
 }
 
 function finishQuest(){
  if(S.quest!==1)return;
  S.quest=2;
- save();
+ persist();render();
 }
 
 function claimReward(){
- if(S.rewardClaimed)return;
- S.rewardClaimed=true;
- S.gold+=25000;
- S.exp+=1000;
- S.sapphire+=3;
- save();
+ const id="quest_reward_"+S.questsDone;
+ if(S.rewardClaimed){toast("Bu görev ödülü zaten alındı.");return}
+
+ once(id,()=>{
+  S.rewardClaimed=true;
+  S.gold+=25000;
+  S.exp+=1000;
+  S.sapphire+=3;
+  S.ruby+=1;
+  S.diamond+=1;
+  S.questsDone++;
+ });
+ toast("Görev ödülleri Ludus'a aktarıldı.");
 }
 
-function resetQuest(){
+function newQuest(){
  S.quest=0;
  S.rewardClaimed=false;
- save();
+ persist();render();
 }
 
-function upgrade(){
- const g=S.gladiators.aulus;
+function profile(){
  return `
  <div class="card hero">
-  <div class="avatar">⚒️</div>
-  <h2>Murmillo Kılıcı</h2>
-  <div class="price">+${g.weapon}</div>
-  <p>${S.upgraded?"Geliştirme tamamlandı.":"Bir sonraki geliştirme: +6"}</p>
+  <div class="avatar">👤</div>
+  <h2>${S.profile.owner}</h2>
+  <p>${S.profile.ludus}</p>
+  <span class="badge">${S.profile.rank}</span>
  </div>
+
  <div class="card">
-  <div class="row"><span>Maliyet</span><b>1 💎 Elmas</b></div>
-  <div class="row"><span>Mevcut Elmas</span><b>${S.diamond}</b></div>
-  ${S.upgraded
-   ?`<div class="notice success">Kılıç +6 oldu. Aulus Overall 73'e yükseldi.</div>`
-   :`<button onclick="doUpgrade()">+6 GELİŞTİR</button>`}
+  <div class="row"><span>Ülke</span><b>${S.profile.country}</b></div>
+  <div class="row"><span>Ludus Level</span><b>${S.profile.level}</b></div>
+  <div class="row"><span>Guild</span><b>${S.profile.guild}</b></div>
+  <div class="row"><span>EXP</span><b>${fmt(S.exp)}</b></div>
+ </div>
+
+ <div class="card">
+  <h3>Başarımlar</h3>
+  <div class="row"><span>İlk Görev</span><b>${S.questsDone>0?"✓":"—"}</b></div>
+  <div class="row"><span>İlk Geliştirme</span><b>${S.equipment.weapon.plus>=6?"✓":"—"}</b></div>
+  <div class="row"><span>Yeni Gladyatör</span><b>${S.boughtLucius?"✓":"—"}</b></div>
  </div>`;
 }
 
-function doUpgrade(){
- if(S.upgraded)return;
- if(S.diamond<1){alert("Yeterli Elmas yok.");return}
- S.diamond--;
- S.upgraded=true;
- S.gladiators.aulus.weapon=6;
- S.gladiators.aulus.overall=73;
- save();
-}
-
+/* Pack 1 Arena korunuyor; büyük Arena BUILD B'de */
 function arena(){
- const g=selected();
-
- if(!S.arenaPlayed) return `
+ const x=g();
+ return `
  <div class="card hero">
   <div class="avatar">🏟️</div>
   <h2>Ranked Arena</h2>
-  <p>Rating <b>${S.rating}</b> · Bronze III</p>
-  <p>Savaşçı: <b>${g.name}</b></p>
-  ${!S.upgraded
-   ?`<div class="notice">Önce Aulus'un silahını +6 geliştir.</div>`
+  <p>Rating <b>${S.rating}</b> · ${S.profile.rank}</p>
+  <p>Savaşçı: <b>${x.name}</b></p>
+  ${S.arenaPlayed
+   ?`<div class="notice success">İlk Arena sonucu kaydedildi ✓</div>`
    :`<button onclick="fight()">SAVAŞA GİR</button>`}
- </div>`;
-
- return `
- <div class="card hero">
-  <div class="avatar">🏆</div>
-  <h2>ZAFER</h2>
-  <p>${g.name} savaşı kazandı.</p>
-  <div class="notice success">
-   Rating ${S.rating-24} → <b>${S.rating}</b> (+24)<br>
-   EXP +500
-  </div>
-  <button disabled>SONUÇ KAYDEDİLDİ ✓</button>
+  <div class="notice">Arena'nın tam 5v5 sistemi BUILD B ile açılacak.</div>
  </div>`;
 }
 
 function fight(){
- if(S.arenaPlayed||!S.upgraded)return;
- S.arenaPlayed=true;
- S.rating+=24;
- S.exp+=500;
- selected().condition=Math.max(0,selected().condition-12);
- save();
+ if(S.arenaPlayed){toast("Bu Arena sonucu zaten işlendi.");return}
+ once("pack1_first_arena",()=>{
+  S.arenaPlayed=true;
+  S.rating+=24;
+  S.exp+=500;
+  g().condition=Math.max(0,g().condition-12);
+ });
+ toast("Zafer! Rating +24 · EXP +500");
 }
 
+/* Pack 1 market korunuyor */
 function market(){
  return `
  <div class="card">
   <h2>Gladyatör Pazarı</h2>
-  <p class="small">Oyuncular arası pazarın ilk test sürümü</p>
+  <div class="small">BUILD B'de tam oyuncular arası pazara dönüşecek.</div>
  </div>
-
  <div class="card">
   <h3>Lucius Drusus</h3>
-  <div class="tags">
-   <span>Murmillo</span><span>OVR 71</span>
-   <span>Lv.11</span><span>Bronze III</span>
-  </div>
+  <div class="tags"><span>Murmillo</span><span>OVR 71</span><span>Lv.11</span></div>
   <p>Kondisyon 88%</p>
   <div class="price">950.000 Altın</div>
-
   ${S.boughtLucius
-   ?`<div class="notice success">
-      SATIN ALINDI ✓<br>Lucius Drusus artık Aurea Ludus kadrosunda.
-     </div>
+   ?`<div class="notice success">SATIN ALINDI ✓<br>Lucius Aurea Ludus kadrosunda.</div>
      <button disabled>ARTIK SATILIK DEĞİL</button>`
    :`<button class="green" onclick="buyLucius()">SATIN AL</button>`}
- </div>
-
- <div class="card">
-  <h3>Benim Ludus'um</h3>
-  <div class="row"><span>Gladyatör Sayısı</span>
-  <b>${Object.keys(S.gladiators).length}</b></div>
  </div>`;
 }
 
 function buyLucius(){
- if(S.boughtLucius){
-  alert("Bu gladyatör daha önce satın alındı.");
-  return;
- }
- if(S.gold<950000){
-  alert("Yeterli Altının yok.");
-  return;
- }
+ if(S.boughtLucius){toast("Bu gladyatör daha önce satın alındı.");return}
+ if(S.gold<950000){toast("Yeterli Altının yok.");return}
 
- S.gold-=950000;
- S.boughtLucius=true;
+ once("market_lucius_purchase",()=>{
+  S.gold-=950000;
+  S.boughtLucius=true;
+  S.gladiators.lucius={
+   id:"lucius",name:"Lucius Drusus",klass:"Murmillo",
+   level:11,overall:71,condition:88,weapon:4,
+   health:1760,stamina:590,agility:124
+  };
+ });
+ toast("Lucius Drusus Aurea Ludus'a katıldı.");
+}
 
- S.gladiators.lucius={
-  id:"lucius",
-  name:"Lucius Drusus",
-  klass:"Murmillo",
-  level:11,
-  overall:71,
-  condition:88,
-  weapon:4,
-  health:1760,
-  stamina:590,
-  agility:124
- };
+function more(){
+ return `
+ <div class="card">
+  <h2>Ludus Menüsü</h2>
+  <div class="menu">
+   <button onclick="nav('management')">🏛️ Yönetim</button>
+   <button onclick="nav('equipment')">🛡️ Ekipman</button>
+   <button onclick="nav('inventory')">💎 Taş Envanteri</button>
+   <button onclick="nav('profile')">👤 Profil</button>
+  </div>
+ </div>
 
- save();
- alert("Lucius Drusus Aurea Ludus'a katıldı.");
+ <div class="card">
+  <h3>BUILD A</h3>
+  <div class="row"><span>Ludus Yönetimi</span><b>✓</b></div>
+  <div class="row"><span>Gladyatör Yönetimi</span><b>✓</b></div>
+  <div class="row"><span>6 Ekipman Slotu</span><b>✓</b></div>
+  <div class="row"><span>Safir / Yakut / Elmas</span><b>✓</b></div>
+  <div class="row"><span>Geliştirme</span><b>✓</b></div>
+  <div class="row"><span>Kondisyon / Dinlenme</span><b>✓</b></div>
+  <div class="row"><span>Görev / Ödül</span><b>✓</b></div>
+  <div class="row"><span>Kalıcı Kayıt</span><b>✓</b></div>
+ </div>`;
 }
 
 function render(){
  const screens={
-  home,
-  gladiator,
-  quest,
-  upgrade,
-  arena,
-  market
+  home,gladiator,equipment,upgrade,inventory,
+  management,quest,arena,market,profile,more
  };
 
  document.getElementById("app").innerHTML=`
-  <header>
-   <div class="brand">COLOSSEUM & LUDUS</div>
-   <div class="sub">AUREA LUDUS · MarcusT</div>
-  </header>
+ <header>
+  <div class="brand">COLOSSEUM & LUDUS</div>
+  <div class="sub">${S.profile.ludus.toUpperCase()} · ${S.profile.owner}</div>
+ </header>
 
-  ${resources()}
+ ${resources()}
 
-  <main>
-   ${(screens[S.screen]||home)()}
-   ${S.screen==="gladiator"
-     ?`<button class="gold" onclick="nav('upgrade')">EKİPMAN GELİŞTİR</button>`
-     :""}
-  </main>
+ <main>${(screens[S.screen]||home)()}</main>
 
-  <nav>
-   <button onclick="nav('home')">🏛️<br>LUDUS</button>
-   <button onclick="nav('gladiator')">⚔️<br>GLADYATÖR</button>
-   <button onclick="nav('quest')">📜<br>GÖREV</button>
-   <button onclick="nav('arena')">🏟️<br>ARENA</button>
-   <button onclick="nav('market')">🪙<br>PAZAR</button>
-  </nav>`;
+ <nav>
+  <button onclick="nav('home')">🏛️<br>LUDUS</button>
+  <button onclick="nav('gladiator')">⚔️<br>GLADYATÖR</button>
+  <button onclick="nav('quest')">📜<br>GÖREV</button>
+  <button onclick="nav('arena')">🏟️<br>ARENA</button>
+  <button onclick="nav('market')">🪙<br>PAZAR</button>
+  <button onclick="nav('more')">☰<br>MENÜ</button>
+ </nav>`;
 }
 
+persist();
 render();
 </script>
 </body>
