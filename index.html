@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#65130f">
-<title>Colosseum & Ludus — BUILD C</title>
+<title>Colosseum & Ludus — BUILD C3</title>
 
 <style>
 :root{
@@ -197,29 +197,155 @@ input,select{
   margin:80px auto;padding:25px;width:min(700px,90vw);background:#fff0dd;border:4px solid #8e1711
 }
 
+
+/* ================= BUILD C3 / ANA SAYFA ================= */
+.homeC3{
+  display:grid;
+  grid-template-columns:820px 300px;
+  width:1120px;
+  min-height:806px;
+  background:#d7c29b;
+}
+.homeSceneC3{
+  position:relative;
+  width:820px;
+  height:806px;
+  overflow:hidden;
+  border-right:2px solid #a77c32;
+  background:#cdb07a;
+}
+.homeSceneC3 .sceneImg{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+}
+.homeSceneC3:after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,#fff2c31c,transparent 24%,transparent 78%,#3c160b2b);
+}
+.homeTitleC3{
+  position:absolute;z-index:3;left:50%;top:20px;transform:translateX(-50%);
+  min-width:310px;padding:9px 28px;text-align:center;
+  color:#ffe4a0;background:linear-gradient(#8b1c14,#5c0e0a);
+  border:2px solid #c49a43;box-shadow:0 4px 12px #0006;
+  font-size:25px;font-weight:bold;letter-spacing:.5px
+}
+.homeHotspot{
+  position:absolute;z-index:4;min-width:118px;padding:8px 12px;
+  border:2px solid #c99d46;border-radius:4px;color:#ffe7a7;
+  background:linear-gradient(#2e2119e8,#17100ce8);
+  box-shadow:0 3px 9px #0008;font-weight:bold;text-align:center;text-shadow:0 1px 2px #000
+}
+.homeHotspot:hover,.homeHotspot:active{background:linear-gradient(#8b1c14,#5c0e0a)}
+.hs-ludus{left:42%;top:14%}
+.hs-guild{left:8%;top:24%}
+.hs-arena{right:7%;top:23%}
+.hs-gladiators{left:34%;top:37%}
+.hs-training{left:8%;top:49%}
+.hs-inventory{right:7%;top:48%}
+.hs-upgrade{left:14%;top:66%}
+.hs-market{right:11%;top:65%}
+.hs-messages{left:32%;top:78%}
+.hs-quests{right:29%;top:80%}
+.homeStatusC3{
+  width:300px;min-height:806px;padding:24px 18px;
+  background:linear-gradient(#fffaf0f2,#f0dfbef2);
+  border-left:1px solid #d7b66d;box-shadow:inset 7px 0 18px #6b461825
+}
+.homeStatusC3 h2{
+  margin:0 0 20px;padding-bottom:10px;color:#68130e;
+  border-bottom:2px solid #b88b45;text-align:center;font-size:25px
+}
+.todayC3{
+  display:grid;grid-template-columns:42px 1fr 38px;align-items:center;gap:8px;
+  margin:11px 0;padding:11px 8px;border-bottom:1px solid #cdb88e;cursor:pointer
+}
+.todayC3 .ti{font-size:25px;text-align:center}
+.todayC3 b{font-size:23px;color:#6d140f;text-align:right}
+.homeMiniC3{margin-top:22px;padding:12px;border:1px solid #b88b45;background:#fff8e7aa}
+.homeMiniC3 .statrow{font-size:14px}
+
+
+/* ================= BUILD C3 / GLADYATÖRLER ================= */
+.gladsC3{
+  width:1120px;min-height:806px;position:relative;overflow:hidden;
+  background:
+    linear-gradient(90deg,#0000 0 73%,#f6e7c9f5 73% 100%),
+    radial-gradient(circle at 45% 15%,#fff4c955,transparent 35%),
+    linear-gradient(145deg,#b9894f,#e5c690 48%,#9f6e3e);
+}
+.gladsSceneC3{
+  position:absolute;left:0;top:0;bottom:150px;width:820px;
+  background:
+    linear-gradient(#fff8d018,#0000 55%,#3b180a38),
+    radial-gradient(ellipse at 50% 95%,#d5b47e 0 38%,transparent 39%),
+    linear-gradient(115deg,#a86f3f 0 18%,#e2c28b 18% 82%,#9c6538 82%);
+  border-right:2px solid #a77c32;
+}
+.gladsSceneC3:before{
+  content:"";position:absolute;left:70px;right:70px;top:62px;height:310px;
+  border:18px solid #d8bc87;border-bottom-width:26px;
+  box-shadow:inset 0 0 0 4px #8f683b,0 8px 25px #0004;
+  background:
+    repeating-linear-gradient(90deg,#6e3d22 0 58px,#c69b61 59px 72px),
+    linear-gradient(#8fb0bd,#ead29d 65%);
+  opacity:.82
+}
+.gladsSceneC3:after{
+  content:"LUDUS AVLU";position:absolute;left:50%;top:24px;transform:translateX(-50%);
+  color:#ffe5a1;background:#65130fe8;border:2px solid #c69a43;padding:8px 30px;
+  font-size:23px;font-weight:bold;letter-spacing:1px
+}
+.gladiatorStageC3{
+  position:absolute;z-index:3;left:35px;right:35px;top:315px;
+  display:flex;justify-content:space-around;align-items:flex-end
+}
+.gladiatorFigureC3{text-align:center;color:#3a1b0d;text-shadow:0 1px #ffe9b7}
+.gladiatorFigureC3 .body{font-size:76px;filter:drop-shadow(0 5px 3px #0005)}
+.gladiatorFigureC3 b{display:block;background:#f3dfb8dd;border:1px solid #8f683b;padding:3px 7px}
+.gladsPanelC3{
+  position:absolute;right:0;top:0;width:300px;bottom:0;padding:20px 17px;
+  background:linear-gradient(#fffaf0f7,#efddbbf7);border-left:1px solid #c49a55
+}
+.gladsPanelC3 h1{margin:4px 0;color:#65130f;font-size:27px}
+.gladsPanelC3 .portrait{
+  width:90px;height:90px;margin:0 auto 10px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:54px;
+  background:linear-gradient(#7d1b13,#32110d);border:3px solid #c99d46
+}
+.gladsActionsC3{display:grid;gap:8px;margin-top:14px}
+.gladsRosterC3{
+  position:absolute;z-index:5;left:0;bottom:0;width:820px;height:150px;
+  display:flex;gap:9px;align-items:center;padding:13px 14px;overflow-x:auto;
+  background:linear-gradient(#4d0d0af4,#2f0907f7);border-top:3px solid #c79a42
+}
+.gladsRosterC3 .fighter{
+  min-width:116px;height:120px;color:#ffe8b0;background:#68130f;border-color:#b98a40
+}
+.gladsRosterC3 .fighter.selected{background:#f2d58c;color:#3c1e0b}
+.gladsRosterC3 .avatar{width:55px;height:55px;font-size:27px}
+
 @media(max-width:900px){
-  .sidebar{display:none}
-  .top{left:0;height:55px}
-  .brand{font-size:17px;padding:0 10px}
-  .resources{gap:8px;padding-right:8px;font-size:11px}
-  .res b{font-size:14px}
-  .main{margin-left:0;padding-top:55px;padding-bottom:66px}
-  .page{padding:10px;min-height:calc(100vh - 121px)}
-  .banner{font-size:23px;padding:8px 20px;margin-bottom:10px}
-  .cols2,.cols3,.guildwar,.market,.sell3,.report2,.chat{grid-template-columns:1fr}
-  .quick{grid-template-columns:1fr 1fr}
-  .bottomnav{
-    display:flex;position:fixed;bottom:0;left:0;right:0;height:66px;z-index:80;
-    background:#59100c;border-top:2px solid #d0a149;overflow-x:auto
-  }
-  .bottomnav button{
-    min-width:82px;flex:1;border:0;background:transparent;color:#ffe4a3;font-size:11px
-  }
-  .bottomnav button.active{background:#f0d492;color:#4b1b0d}
-  .chat>div{border-right:0;border-bottom:1px solid #bca376}
-  .guildwar{display:block}
-  .guildwar>div{margin-bottom:12px}
+  html,body{min-width:1280px;overflow-x:auto;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #app{min-width:1280px}
+  .sidebar{display:block;width:160px}
+  .top{left:160px;right:auto;width:1120px;height:58px;position:absolute}
+  .brand{font-size:25px;padding:0 28px}
+  .resources{gap:18px;padding-right:22px;font-size:16px}
+  .res b{font-size:19px}
+  .main{margin-left:160px;padding-top:58px;padding-bottom:0;width:1120px;min-width:1120px}
+  .page{padding:22px;width:1120px;min-width:1120px;min-height:calc(100vh - 58px)}
+  .cols2{grid-template-columns:1fr 1fr}
+  .cols3{grid-template-columns:1fr 1fr 1fr}
+  .quick{grid-template-columns:repeat(4,1fr)}
+  .guildwar{display:grid;grid-template-columns:1fr 1.25fr 1fr}
+  .market{grid-template-columns:minmax(0,1fr) 300px}
+  .sell3{grid-template-columns:1fr 1fr 1.15fr}
+  .report2{grid-template-columns:1fr 1fr}
+  .chat{grid-template-columns:28% 46% 26%}
+  .chat>div{border-right:1px solid #bca376;border-bottom:0}
   .wargrid{grid-template-columns:repeat(4,1fr)}
+  .bottomnav{display:none!important}
 }
 </style>
 </head>
@@ -258,11 +384,11 @@ input,select{
 "use strict";
 
 /* =========================================================
-   COLOSSEUM & LUDUS — BUILD C
+   COLOSSEUM & LUDUS — BUILD C3
    Local playable prototype
    ========================================================= */
 
-const BUILD="BUILD C";
+const BUILD="BUILD C3";
 const KEY="LUDUS_BUILD_C_FULL_V2";
 
 const NAV=[
@@ -742,18 +868,7 @@ function buildNav(){
     </button>`
   ).join("");
 
-  $("bottomNav").innerHTML=[
-    ["home","🏠","LUDUS"],
-    ["gladiators","🪖","KADRO"],
-    ["arena","🏟️","ARENA"],
-    ["guild","👥","GUILD"],
-    ["market","⚖️","PAZAR"],
-    ["messages","✉️","MESAJ"]
-  ].map(n=>
-    `<button data-page="${n[0]}" class="${page===n[0]?"active":""}">
-      ${n[1]}<br>${n[2]}
-    </button>`
-  ).join("");
+  $("bottomNav").innerHTML="";
 }
 
 function go(p){
@@ -837,62 +952,52 @@ function banner(t){return `<div class="banner">${t}</div>`}
 
 function renderHome(){
   const idle=readyGladiators().length;
-  const upgradeable=S.items.filter(i=>!i.destroyed&&!i.marketLocked).length;
   const qleft=Math.max(0,3-S.daily.questsAssigned);
+  const unread=Number(S.messages.unread)||0;
+  const upgradeable=S.messages.system.filter(n=>/Geliştirme uygun/i.test(n.text)).length;
 
   return`
-  <div class="page">
-    ${banner("AUREA LUDUS")}
-    <div class="hero">
-      <h1>🏛️ ${esc(S.ludus.name)}</h1>
-      <p>Roma'nın arenalarında yükselen Ludus'unu yönet.</p>
+  <div class="homeC3">
+    <section class="homeSceneC3" aria-label="Aurea Ludus Merkezi">
+      <img class="sceneImg" src="images/IMG_1576.png" alt="Aurea Ludus avlusu" draggable="false">
 
-      <div class="quick">
-        <div class="card" data-go="quests">
-          <div class="big">${qleft}</div>
-          <b>Görev Hakkı</b>
-        </div>
-        <div class="card" data-go="gladiators">
-          <div class="big">${idle}</div>
-          <b>Gladyatör Boşta</b>
-        </div>
-        <div class="card" data-go="upgrade">
-          <div class="big">${upgradeable}</div>
-          <b>Geliştirme Uygun</b>
-        </div>
-        <div class="card" data-go="messages">
-          <div class="big">${S.messages.unread}</div>
-          <b>Yeni Mesaj</b>
-        </div>
+      <div class="homeTitleC3">${esc(S.ludus.name)}</div>
+
+      <button class="homeHotspot hs-ludus" data-go="ludus">LUDUS</button>
+      <button class="homeHotspot hs-guild" data-go="guild">GUILD</button>
+      <button class="homeHotspot hs-arena" data-go="arena">ARENA</button>
+      <button class="homeHotspot hs-gladiators" data-go="gladiators">GLADYATÖRLER</button>
+      <button class="homeHotspot hs-training" data-go="training">ANTRENMAN</button>
+      <button class="homeHotspot hs-inventory" data-go="inventory">ENVANTER</button>
+      <button class="homeHotspot hs-upgrade" data-go="upgrade">GELİŞTİRMELER</button>
+      <button class="homeHotspot hs-market" data-go="market">PAZAR</button>
+      <button class="homeHotspot hs-messages" data-go="messages">MESAJLAR</button>
+      <button class="homeHotspot hs-quests" data-go="quests">GÖREVLER</button>
+    </section>
+
+    <aside class="homeStatusC3">
+      <h2>Bugünün Durumu</h2>
+
+      <div class="todayC3" data-go="quests">
+        <span class="ti">📜</span><span>Görev hazır</span><b>${qleft}</b>
       </div>
-    </div>
-
-    <div class="grid cols3" style="margin-top:14px">
-      <div class="panel">
-        <h2>Bugünün Durumu</h2>
-        <div class="statrow"><span>Görev hakkı</span><b>${qleft}/3</b></div>
-        <div class="statrow"><span>Boşta gladyatör</span><b>${idle}</b></div>
-        <div class="statrow"><span>Tamamlanan görev</span><b>${S.daily.completed}</b></div>
-        <div class="statrow"><span>Aktif antrenman</span><b>${S.training.length}</b></div>
+      <div class="todayC3" data-go="gladiators">
+        <span class="ti">🪖</span><span>Gladyatör boşta</span><b>${idle}</b>
+      </div>
+      <div class="todayC3" data-go="upgrade">
+        <span class="ti">⚒️</span><span>Geliştirme uygun</span><b>${upgradeable}</b>
+      </div>
+      <div class="todayC3" data-go="messages">
+        <span class="ti">✉️</span><span>Yeni mesaj</span><b>${unread}</b>
       </div>
 
-      <div class="panel">
-        <h2>Ludus</h2>
-        <div class="statrow"><span>Seviye</span><b>${S.ludus.level}</b></div>
-        <div class="statrow"><span>Genel Verim</span><b>+%${S.ludus.efficiency}</b></div>
+      <div class="homeMiniC3">
+        <div class="statrow"><span>Ludus Seviyesi</span><b>${S.ludus.level}</b></div>
         <div class="statrow"><span>Günlük Aktiflik</span><b>${S.ludus.activity}/${S.ludus.activityMax}</b></div>
-        <div class="progress"><i style="width:${S.ludus.exp/S.ludus.expMax*100}%"></i></div>
-        <p class="small">EXP ${fmt(S.ludus.exp)} / ${fmt(S.ludus.expMax)}</p>
+        <div class="statrow"><span>Tamamlanan Görev</span><b>${S.daily.completed}</b></div>
+        <div class="statrow"><span>Aktif Antrenman</span><b>${S.training.length}</b></div>
       </div>
-
-      <div class="panel">
-        <h2>Hızlı Erişim</h2>
-        <button class="btn gold" data-go="inventory">Envanter</button>
-        <button class="btn gold" data-go="market">Pazar</button>
-        <button class="btn gold" data-go="arena">Arena</button>
-        <button class="btn gold" data-go="guild">Guild</button>
-      </div>
-    </div>
+    </aside>
   </div>`;
 }
 
@@ -912,48 +1017,65 @@ function gladiatorRoster(){
 function renderGladiators(){
   const g=selectedGladiator();
   const equipped=S.items.filter(i=>i.equippedBy===g.id&&!i.destroyed);
+  const statusClass=g.injury>0?"status-injured":g.status==="Hazır"?"status-ready":"status-busy";
 
   return`
-  <div class="page">
-    ${banner("Gladyatörler")}
-    ${gladiatorRoster()}
-
-    <div class="grid cols2">
-      <div class="panel">
-        <div style="text-align:center;font-size:90px">🛡️</div>
-        <h1 style="text-align:center">${esc(g.name)}</h1>
-        <p style="text-align:center">${esc(g.klass)} · Seviye ${g.level} · OVR ${g.ovr}</p>
-        <div class="statrow"><span>Durum</span><b>${esc(g.status)}</b></div>
-        <div class="statrow"><span>Yorgunluk</span><b>%${g.fatigue}</b></div>
-        <div class="statrow"><span>Kondisyon</span><b>${g.condition}/100</b></div>
-        <div class="statrow"><span>Stat Gücü</span><b>+%${g.statPower}</b></div>
-        <div class="statrow"><span>Skill Etkisi</span><b>+%${g.skillEffect}</b></div>
+  <div class="gladsC3">
+    <section class="gladsSceneC3">
+      <div class="gladiatorStageC3">
+        ${S.gladiators.slice(0,5).map(x=>`
+          <div class="gladiatorFigureC3">
+            <div class="body">${x.id===g.id?"⚔️":"🛡️"}</div>
+            <b>${esc(x.name.split(" ")[0])}</b>
+          </div>
+        `).join("")}
       </div>
+    </section>
 
-      <div class="panel">
-        <h2>Gladyatör Detay</h2>
-        <div class="statrow"><span>Health</span><b>${fmt(g.stats.health)}</b></div>
-        <div class="statrow"><span>Stamina</span><b>${fmt(g.stats.stamina)}</b></div>
-        <div class="statrow"><span>Agility</span><b>${fmt(g.stats.agility)}</b></div>
-        <div class="statrow"><span>Physical Attack</span><b>${fmt(g.stats.attack)}</b></div>
-        <div class="statrow"><span>Defense</span><b>${fmt(g.stats.defense)}</b></div>
-
-        <h3 style="margin-top:15px">Ekipman</h3>
-        ${TYPES.map(type=>{
-          const i=equipped.find(x=>x.type===type);
-          return `<div class="statrow">
-            <span>${type}</span>
-            <b>${i?esc(i.name)+" +"+i.plus:"—"}</b>
-          </div>`
-        }).join("")}
-
-        <div style="margin-top:14px">
-          <button class="btn" data-go="training">Antrenmana Al</button>
-          <button class="btn gold" data-go="quests">Göreve Gönder</button>
-          <button class="btn dark" data-rest="${g.id}">Dinlendir</button>
+    <div class="gladsRosterC3">
+      ${S.gladiators.map(x=>`
+        <div class="fighter ${x.id===S.selectedGladiator?"selected":""}" data-glad="${x.id}">
+          <div class="avatar">🪖</div>
+          <b>${esc(x.name.split(" ")[0])}</b>
+          <div class="small">${esc(x.klass)} · OVR ${x.ovr}</div>
+          <div class="${x.status==="Hazır"?"good":"status-busy"} small">${esc(x.status)}</div>
         </div>
-      </div>
+      `).join("")}
     </div>
+
+    <aside class="gladsPanelC3">
+      <div class="portrait">🪖</div>
+      <h1>${esc(g.name)}</h1>
+      <p><b>${esc(g.klass)}</b> · Seviye ${g.level} · OVR ${g.ovr}</p>
+
+      <div class="statrow"><span>Durum</span><b class="${statusClass}">${esc(g.status)}</b></div>
+      <div class="statrow"><span>Stat Gücü</span><b>+%${g.statPower}</b></div>
+      <div class="statrow"><span>Skill Etkisi</span><b>+%${g.skillEffect}</b></div>
+      <div class="statrow"><span>Yorgunluk</span><b>%${g.fatigue}</b></div>
+      <div class="statrow"><span>Kondisyon</span><b>${g.condition}/100</b></div>
+
+      <div class="hr"></div>
+      <h3>Temel Statlar</h3>
+      <div class="statrow"><span>Health</span><b>${fmt(g.stats.health)}</b></div>
+      <div class="statrow"><span>Dayanıklılık</span><b>${fmt(g.stats.stamina)}</b></div>
+      <div class="statrow"><span>Atiklik</span><b>${fmt(g.stats.agility)}</b></div>
+      <div class="statrow"><span>Saldırı</span><b>${fmt(g.stats.attack)}</b></div>
+      <div class="statrow"><span>Savunma</span><b>${fmt(g.stats.defense)}</b></div>
+
+      <div class="hr"></div>
+      <h3>Ekipman ${equipped.length}/6</h3>
+      ${equipped.slice(0,3).map(i=>`
+        <div class="statrow"><span>${i.type}</span><b>${esc(i.name)} +${i.plus}</b></div>
+      `).join("")}
+      ${equipped.length>3?`<p class="small">+${equipped.length-3} diğer ekipman</p>`:""}
+
+      <div class="gladsActionsC3">
+        <button class="btn gold" data-glad-detail>DETAY</button>
+        <button class="btn" data-go="quests" ${g.status!=="Hazır"?"disabled":""}>GÖREVE GÖNDER</button>
+        <button class="btn" data-go="training" ${g.status!=="Hazır"?"disabled":""}>ANTRENMANA AL</button>
+        <button class="btn dark" data-rest="${g.id}">DİNLENDİR</button>
+      </div>
+    </aside>
   </div>`;
 }
 
@@ -2622,6 +2744,34 @@ function bindPage(){
   document.querySelectorAll("[data-rest]").forEach(el=>{
     el.onclick=()=>restGladiator(el.dataset.rest);
   });
+
+  const gd=document.querySelector("[data-glad-detail]");
+  if(gd)gd.onclick=()=>{
+    const g=selectedGladiator();
+    const eq=S.items.filter(i=>i.equippedBy===g.id&&!i.destroyed);
+    modal(`
+      <h1>${esc(g.name)}</h1>
+      <p><b>${esc(g.klass)}</b> · Seviye ${g.level} · OVR ${g.ovr}</p>
+      <div class="grid cols2">
+        <div class="panel">
+          <h3>Statlar</h3>
+          <div class="statrow"><span>Health</span><b>${fmt(g.stats.health)}</b></div>
+          <div class="statrow"><span>Dayanıklılık</span><b>${fmt(g.stats.stamina)}</b></div>
+          <div class="statrow"><span>Atiklik</span><b>${fmt(g.stats.agility)}</b></div>
+          <div class="statrow"><span>Saldırı</span><b>${fmt(g.stats.attack)}</b></div>
+          <div class="statrow"><span>Savunma</span><b>${fmt(g.stats.defense)}</b></div>
+        </div>
+        <div class="panel">
+          <h3>Ekipman</h3>
+          ${TYPES.map(type=>{
+            const i=eq.find(x=>x.type===type);
+            return `<div class="statrow"><span>${type}</span><b>${i?esc(i.name)+" +"+i.plus:"—"}</b></div>`;
+          }).join("")}
+        </div>
+      </div>
+      <br><button class="btn dark" data-close onclick="document.getElementById('modal').remove()">Kapat</button>
+    `);
+  };
 
   document.querySelectorAll("[data-quest]").forEach(el=>{
     el.onclick=()=>{
